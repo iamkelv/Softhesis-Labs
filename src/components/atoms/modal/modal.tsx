@@ -34,17 +34,18 @@ const Modal: React.FC<ModalProps> = ({
   iconBackground,
 }) => {
   const { width: windowWidth } = useWindowDimensions();
-  const handleClose = (e, type = "") => {
+
+  const handleClose = (e: React.MouseEvent<HTMLDivElement> | null, type = "") => {
     e?.stopPropagation();
 
-    const val = e?.target.id;
+    const val = (e?.target as HTMLDivElement).id;
     if (val === "close" || type === "close") onClose();
   };
 
   if (!isOpen) return null;
   return (
     <div
-      className={`${styles.container}  `}
+      className={`${styles.container}`}
       onClick={(e) => handleClose(e)}
       id="close"
     >
@@ -53,12 +54,12 @@ const Modal: React.FC<ModalProps> = ({
         style={{ width: windowWidth > 768 ? width : "90%", maxHeight }}
       >
         <div
-          className={`${`${styles.title} ${addMargin ? "h-[2rem]" : null}`} ${
-            titlePosition ? `justify-${titlePosition}  ` : null
-          } `}
+          className={`${`${styles.title} ${addMargin ? "h-[2rem]" : ""}`} ${
+            titlePosition ? `justify-${titlePosition}` : ""
+          }`}
         >
           {title && typeof title === "string" ? (
-            <Text color="#111111">{title}</Text>
+            <span className="bg-[#111111]">{title}</span>
           ) : (
             title
           )}
@@ -68,7 +69,7 @@ const Modal: React.FC<ModalProps> = ({
               id="close"
               onClick={() => handleClose(null, "close")}
               className={`${styles.close} ${
-                iconBackground ? `bg-[${iconBackground}]  rounded-full ` : null
+                iconBackground ? `bg-[${iconBackground}] rounded-full` : ""
               }`}
             >
               <AiOutlineClose className={styles.svg} />

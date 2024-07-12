@@ -100,7 +100,7 @@ const ProfileInfo: React.FC = () => {
           onClick={handleUpdate}
         />
       </div>
-      <Modal  isOpen={openModal} onClose={() => setOpenModal(false)} >
+      <Modal isOpen={openModal} onClose={() => setOpenModal(false)} closeIcon={ false}>
         <div className='md:w-[300px] justify-center items-center  md:h-[300px] h-[100%] flex flex-col'>
           <Image className='w-[150px] h-[150px]' alt='' width={500} height={500} src={'/assets/icons/accepted.svg'}/>
           <Text className='font-bold'> Profile Update Successfully</Text>

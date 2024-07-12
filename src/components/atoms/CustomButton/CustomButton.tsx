@@ -3,7 +3,7 @@ import React from 'react';
 
 interface ButtonProps {
   label?: string;
-    status?: 'completed' | 'ongoing';
+    status?: 'completed' | 'ongoing' | string;
   classNames?: string,
   onClick?:(e: React.MouseEvent<HTMLButtonElement>) => void;
 

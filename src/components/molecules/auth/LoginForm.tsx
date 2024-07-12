@@ -8,10 +8,12 @@ import { useAppDispatch } from "@/store/reduxHooks";
 import { setLogin } from "@/store/slices/authSlice";
 import { useRouter } from "next/router";
 
+
 const LoginForm: React.FC = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [formData, setFormData] = useState({ username: "", password: "" });
-  const [errors, setErrors] = useState({ username: "", password: "",credential:null });
+  const [errors, setErrors] = useState({ username: "", password: "", credential: '' });
+  const [isLoading, setIsLoading] = useState(false);
   const dispatch = useAppDispatch()
   const router = useRouter();
   
@@ -19,14 +21,10 @@ const LoginForm: React.FC = () => {
     setShowPassword(!showPassword);
   };
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setErrors(prev => {
-      return {
-        ...prev,
-        credential:null
-      }
-    })
+   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+     const { name, value } = e.target;
+     const newErrors = { username: errors.username, password: errors.password , credential:''};
+    setErrors(newErrors)
     setFormData((prevFormData) => ({
       ...prevFormData,
       [name]: value,
@@ -35,7 +33,7 @@ const LoginForm: React.FC = () => {
 
   const validateForm = () => {
     let isValid = true;
-    const newErrors = { username: "", password: "" };
+    const newErrors = { username: "", password: "" , credential:''};
 
     if (!formData.username.trim()) {
       newErrors.username = "Username or email is required.";
@@ -48,22 +46,21 @@ const LoginForm: React.FC = () => {
     }
 
     setErrors(newErrors);
+    
     return isValid;
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {    
     e.preventDefault();
     if (validateForm()) {
       if (formData.username === "user" && formData.password === "password") {
-        dispatch(setLogin())
+        setIsLoading(true)
+        dispatch(setLogin())      
         router.push("/dashboard")                
       } else {
-        setErrors(prev => {
-          return {
-            ...prev,
-            credential :'Invalid username or password : username:user, password:password'
-          }
-        })
+
+        const newErrors = { username: "", password: "" , credential:'Invalid username or password : username:user, password:password'};
+        setErrors(newErrors)
         
       }
 
@@ -121,7 +118,7 @@ const LoginForm: React.FC = () => {
           type="submit"
           className="bg-[#B51749] font-extralight  my-auto min-h-[52px] md:w-[70%] w-[80%] flex items-center justify-center  text-white lg:py-2 py-2 px-4 rounded-full hover:bg-[#e32662bd]  transition duration-300 mb-4"
         >
-          Log In
+          { isLoading ? <span>Loading...</span> : 'Log In'}          
         </PrimaryButton>
       </div>
     </form>

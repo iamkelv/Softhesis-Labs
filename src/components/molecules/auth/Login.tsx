@@ -15,7 +15,7 @@ const SigninPage: React.FC = () => {
     if (auth) {
       router.push('/dashboard')
     }
-  }, [])
+  }, [auth, router])
   
   return (
     <div className={Styles.container}>
@@ -60,7 +60,7 @@ const SigninPage: React.FC = () => {
               Welcome Back
             </h2>
             <span className={Styles.container_rightSection_wrapper_content_account}>
-              Don't have an account?
+              Dont have an account?
               <Link
                 href={""}
                 onClick={() => setOpen(true)}

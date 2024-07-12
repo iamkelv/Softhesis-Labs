@@ -1,17 +1,12 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
-import {
-
-  FaMoneyBill,
-
-  FaRegUser,
-} from 'react-icons/fa';
+import { FaMoneyBill, FaRegUser } from 'react-icons/fa';
 
 import styles from './sidebar.module.scss';
 
 import { FiInfo } from 'react-icons/fi';
-import { CiSettings, CiUser } from 'react-icons/ci';
+import { CiSettings } from 'react-icons/ci';
 import { MdAnalytics, MdOutlineMessage } from 'react-icons/md';
 import { LuWallet } from 'react-icons/lu';
 import { RiLogoutCircleRLine, RiSpeedUpFill } from 'react-icons/ri';
@@ -91,9 +86,8 @@ const SideBar = ({
     const currentPath = router.pathname.split('/dashboard')[1];
     const link = currentPath?.split('/')[1] || '';
     setSelectedLink(link);
-    
   }, [router.pathname]);
-console.log(selectedLink === 'dash-profile')
+  console.log(selectedLink === 'dash-profile');
   return (
     <div className={styles.sidebar}>
       <div
@@ -106,22 +100,21 @@ console.log(selectedLink === 'dash-profile')
         <div className={styles.link_container}>
           {menuItems.map((item, index) => {
             const currentPath = item.path.split('/dashboard')[1];
-          const link = currentPath?.split('/')[1] || '';
-            return <Link
-              key={index}
-              href={item.dynamicPath ? '/dashboard/dash-settings' : item.path}
-              className={`${styles.sidebar_link} ${
-                link === selectedLink && styles.selected
-              }`}
-              onClick={() => setOpenDash(false)}
-            >
-              <div className={styles.sidebar_icon}>{item.icon}</div>
-              <p className={styles.sidebar_link_text}>{item.name}</p>
-            </Link>
-          }
-
-            
-          )}
+            const link = currentPath?.split('/')[1] || '';
+            return (
+              <Link
+                key={index}
+                href={item.dynamicPath ? '/dashboard/dash-settings' : item.path}
+                className={`${styles.sidebar_link} ${
+                  link === selectedLink && styles.selected
+                }`}
+                onClick={() => setOpenDash(false)}
+              >
+                <div className={styles.sidebar_icon}>{item.icon}</div>
+                <p className={styles.sidebar_link_text}>{item.name}</p>
+              </Link>
+            );
+          })}
         </div>
 
         <div className={styles.link_container} style={{ marginTop: '2rem' }}>

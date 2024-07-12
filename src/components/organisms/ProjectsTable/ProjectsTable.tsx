@@ -1,4 +1,3 @@
-import TableHeader from '@/components/molecules/TableHeader/TableHeader';
 import TableRow from '@/components/molecules/TableRow/TableRow';
 import React from 'react';
 

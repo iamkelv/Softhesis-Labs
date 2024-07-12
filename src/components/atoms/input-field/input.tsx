@@ -2,7 +2,6 @@ import React, { useMemo, useRef, useState } from "react";
 import styles from "./input.module.scss";
 import { CiSearch } from "react-icons/ci";
 import { FaStarOfLife } from "react-icons/fa";
-import Text from "../text/text";
 import { IoCloseOutline } from "react-icons/io5";
 
 interface InputProps {
@@ -39,7 +38,6 @@ interface InputProps {
   shadow?: boolean;
 }
 
-
 export function InputField({
   placeholder,
   value,
@@ -60,9 +58,9 @@ export function InputField({
   type = "text",
   className,
   id,
-  error,
+  error = {}, 
   handleClearSearch,
-  shadow = false, 
+  shadow = false,
 }: InputProps) {
   const inputRef = useRef<HTMLInputElement>(null);
   const [formattedValue, setFormattedValue] = useState<string | number>("");
@@ -110,7 +108,7 @@ export function InputField({
   };
 
   const isEmail = type === "email";
-  const errorCondition = error?.[name] && !value;
+  const errorCondition = name ? error[name] && !value : false;
 
   return (
     <div className={`${styles.container} border-none`} style={{ width }}>
@@ -121,8 +119,8 @@ export function InputField({
         </div>
       ) : null}
       <input
-           style={{ ...extraStyle, paddingRight: isSearch ? "3rem" : "1rem" }}
-  className={`${styles.input} ${border && !shadow && "border border-[#575757]"} ${className} ${shadow ? styles["input-shadow"] : ""}`}
+        style={{ ...extraStyle, paddingRight: isSearch ? "3rem" : "1rem" }}
+        className={`${styles.input} ${border && !shadow && "border border-[#575757]"} ${className} ${shadow ? styles["input-shadow"] : ""}`}
         ref={inputRef}
         placeholder={placeholder}
         onChange={onChange}
@@ -135,10 +133,10 @@ export function InputField({
         disabled={disabled}
         required={required}
       />
-      {(isEmail ? error?.[name] : errorCondition) && (
-        <Text margin="0 0 0 1rem" fontSize="0.7rem" color="#FC5555">
-          {error?.[name]}
-        </Text>
+      {(isEmail ? name && error[name] : errorCondition) && (
+        <span style={{ margin: "0 0 0 1rem", fontSize: "0.7rem", color: "#FC5555" }}>
+          {name && error[name]}
+        </span>
       )}
       {isSearch ? (
         <>

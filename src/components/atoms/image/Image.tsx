@@ -1,6 +1,7 @@
-import { useState } from "react";
-import { SpinalLoader } from "../loader/Loader";
-import styles from "./image.module.scss";
+import { useState } from 'react';
+import { SpinalLoader } from '../loader/Loader';
+import styles from './image.module.scss';
+import CustomImage from './CustomImages';
 
 interface ImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
   src: string;
@@ -18,24 +19,25 @@ const Image: React.FC<ImageProps> = ({ src, alt, ...restProps }) => {
       {!isImageLoaded && (
         <div
           style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            height: "100%",
-            width: "100%",
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            height: '100%',
+            width: '100%',
           }}
         >
           <SpinalLoader />
         </div>
       )}
-      <img
-        className={styles.image}
+      <CustomImage
         src={src}
-        alt={alt || "alt image"}
+        alt={alt || 'alt image'}
+        className={styles.image}
         {...restProps}
-        crossOrigin="anonymous"
         onLoad={handleImageLoad}
-        style={{ display: isImageLoaded ? "inline" : "none" }}
+        style={{ display: isImageLoaded ? 'inline' : 'none' }}
+        height={500}
+        width={500}
       />
     </>
   );

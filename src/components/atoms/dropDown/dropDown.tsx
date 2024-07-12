@@ -1,6 +1,7 @@
 import { FunctionComponent, useState } from "react";
 import styles from "./dropDown.module.scss";
 import { FaChevronDown } from "react-icons/fa";
+import Image from "next/image";
 
 
 interface DropdownProps {
@@ -13,7 +14,7 @@ interface DropdownProps {
   backgroundColor?: string;
   selected: number;
   border?: string;
-  setValue: (value) => void;
+  setValue: (value: any) => void;
   options: (string | number)[];
   placeholder?: string;
   disabled?: boolean;
@@ -88,7 +89,7 @@ const Dropdown: FunctionComponent<DropdownProps> = ({
           }}
         >
           {dropdownIcon ? (
-            <img src={dropdownIcon} alt="drop" />
+            <Image src={dropdownIcon} alt="drop" />
           ) : (
             <FaChevronDown style={{ width: iconSize === "sm" ? "8px" : "" }} />
           )}
