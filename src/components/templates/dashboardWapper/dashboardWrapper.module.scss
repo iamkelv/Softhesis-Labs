@@ -1,0 +1,79 @@
+.wrapper {
+  display: flex;
+  background: #f4f6f9;
+  width: 100%;
+  position: relative;
+
+  .overlay {
+    background: rgba(0, 0, 0, 0.288);
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 100;
+  }
+}
+
+.side_bar {
+  width: 12.5rem;
+  min-width: 12.5rem;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  color: white;
+  overflow: hidden;
+  z-index: 99;
+  background: #0f123f;
+  position: relative;
+  border-right: 1px solid #fbe4eb;
+
+  @media (max-width: 1080px) {
+    width: 9.4rem;
+  }
+
+  @media (max-width: 768px) {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    align-items: center;
+    justify-content: flex-start;
+    transition: left 0.5s ease-in-out;
+    z-index: 400;
+  }
+}
+
+.dash {
+  width: calc(100% - 12.5rem);
+  display: flex;
+  height: 100vh;
+  overflow-y: scroll;
+  position: relative;
+  flex-direction: column;
+
+  .outlet {
+    min-height: 4.5rem;
+    height: 4.5rem;
+    width: 100%;
+    // position: fixed;
+    // top: 0;
+    // right: 0;
+  }
+
+  @media (max-width: 1080px) {
+    width: calc(100% - 9.4rem);
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+}
+
+.hamburger {
+  position: absolute;
+  width: 1.5rem;
+  height: 1.5rem;
+  top: 1.5rem;
+  left: 1rem;
+  z-index: 1000;
+}

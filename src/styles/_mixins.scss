@@ -1,0 +1,34 @@
+@mixin icon-and-text($width: "1.6rem", $gap: 1rem) {
+  display: flex;
+  align-items: center;
+  gap: $gap;
+
+  img {
+    width: $width;
+  }
+
+  @media (max-width: 768px) {
+    gap: $gap;
+    margin-bottom: 0.2rem;
+
+    img {
+      width: $width;
+    }
+  }
+
+  @media (max-width: 480px) {
+    gap: $gap;
+    margin-bottom: 0.2rem;
+
+    img {
+      width: $width;
+    }
+  }
+}
+
+@mixin flex($dir: "row", $ai: "center", $jc: "space-between") {
+  display: flex;
+  align-items: $ai;
+  justify-content: $jc;
+  flex-direction: $dir;
+}

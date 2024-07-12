@@ -1,0 +1,18 @@
+.notFound {
+  @apply flex h-screen bg-gray-100;
+  &_wrapper {
+    @apply m-auto text-center;
+    &_body {
+      @apply text-6xl font-bold text-gray-800;
+    }
+    &_header {
+      @apply text-2xl text-gray-600;
+    }
+    &_content {
+      @apply text-gray-500 mt-4;
+    }
+    &_link {
+      @apply text-blue-500 hover:underline mt-4 block;
+    }
+  }
+}

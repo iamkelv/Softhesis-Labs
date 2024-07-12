@@ -1,0 +1,66 @@
+@import '../../../styles/colors';
+
+.input {
+  appearance: none;
+  outline: none;
+  font-size: 1rem;
+  height: 2.2rem;
+  color: $grey200;
+  transition: ease-in-out all 0.5s;
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  width: 12.5rem;
+
+  ::placeholder {
+    color: $grey200;
+    opacity: 0.7;
+  }
+
+  :focus {
+    border: 1px solid #575757;
+  }
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  label {
+    color: $grey200;
+  }
+
+  .search_icon {
+    position: absolute;
+    right: 1rem;
+    top: 0.7rem;
+    width: 30px;
+    height: 30px;
+    color: $grey200;
+    cursor: pointer;
+    transition: all ease-in-out 0.5s;
+  }
+
+  &:hover {
+    .search_icon {
+      transform: rotate(-45deg);
+    }
+  }
+
+  .label_container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    .required_icon {
+      color: $pink200;
+      margin-left: 0.5rem;
+      width: 0.5rem;
+      align-self: start;
+    }
+  }
+}
+
+.input-shadow {
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+}

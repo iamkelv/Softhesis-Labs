@@ -1,0 +1,46 @@
+.container {
+  @apply space-y-10;
+
+  .btn_add {
+    @apply text-sm sm:text-[1rem] font-[400] gap-[8px] duration-200 h-[2rem] px-[16px] py-[8px];
+    @apply text-white bg-pink-400 hover:bg-pink-500 cursor-pointer rounded-[20px] overflow-hidden;
+    @apply flex items-center justify-center;
+
+    @media (max-width: 768px) {
+      width: fit-content;
+      font-size: 0.8rem;
+    }
+  }
+
+  h1 {
+    @apply font-normal text-2xl text-center flex-1;
+  }
+
+  .body {
+    @apply border border-gray-200 rounded-l-[20px];
+  }
+}
+
+.wrapper {
+  @apply pl-3 lg:pl-5 pb-5;
+
+  @media (max-width: 768px) {
+    padding: 0;
+  }
+}
+
+.header_wrapper {
+  @media (max-width: 768px) {
+    padding: 1rem 1rem 0 1rem;
+  }
+}
+
+.edit {
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  height: 80%;
+  border-radius: 0.5rem;
+  border: 1px solid pink;
+  padding: 0.5rem 1.2rem;
+}

@@ -1,0 +1,26 @@
+@import "../../../styles/colors";
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: fit-content;
+
+  label {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 1rem;
+    font-weight: 300;
+    color: #575757;
+    text-wrap: nowrap;
+    width: fit-content;
+  }
+
+  .star {
+    color: $pink100;
+    margin: 0;
+    margin-bottom: 0.2rem;
+    margin-left: 0.3rem;
+  }
+}

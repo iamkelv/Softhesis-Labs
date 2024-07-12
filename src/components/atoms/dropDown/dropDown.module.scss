@@ -1,0 +1,81 @@
+@import "../../../styles/colors";
+
+.container {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.options {
+  position: absolute;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  height: auto;
+  border-radius: 0 0 8px 8px;
+  background: white;
+  overflow-y: hidden;
+  z-index: 9999;
+  align-items: flex-start;
+
+  button {
+    cursor: pointer;
+    border: none;
+    font-size: 0.875rem;
+    min-height: 1.875rem;
+    max-height: 1.875rem;
+    background: transparent;
+    border-radius: 0 !important;
+    color: $grey200;
+    transition: all ease-in-out 0.3s;
+    border-bottom: 1px solid #eee;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    &:hover {
+      background: $pink_T2;
+    }
+  }
+}
+
+.drop_down_btn {
+  font-size: 1rem;
+  padding: 0 0.7rem;
+  width: 100%;
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.selected {
+  display: flex;
+  align-items: center;
+  color: $grey200;
+  position: absolute;
+  justify-content: space-between;
+  right: 1rem;
+}
+
+.close_div {
+  height: 100vh;
+  width: 100vw;
+  background: transparent;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+
+.clipped {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  padding: 0;
+  margin: 0;
+  color: $grey300;
+}

@@ -1,0 +1,103 @@
+.container {
+  @apply min-h-screen  overflow-y-hidden flex flex-col lg:flex-row;
+  &_leftWrapper {
+    @apply hidden lg:flex lg:flex-1 bg-cover bg-center relative h-[40rem] lg:h-auto;
+    &_wrapper {
+      @apply hidden lg:flex lg:flex-1 bg-cover bg-center relative h-[40rem] lg:h-auto;
+      &_overlay {
+        @apply h-full w-full bg-black opacity-50;
+      }
+      &_imageWrapper {
+        @apply absolute inset-0 flex mt-[20%] justify-center;
+      }
+      &_content {
+        @apply text-white text-4xl font-bold text-center lg:text-left w-full lg:w-auto flex flex-col gap-20;
+        &_image {
+          @apply flex items-center  mb-5 md:mt-[1rem] mt-[5rem] w-full justify-center;
+        }
+      }
+      &_welcomeContent {
+        @apply flex flex-col  items-center gap-4 justify-center;
+      }
+      &_header {
+        @apply font-[600] text-2xl lg:text-3xl;
+      }
+      &_span {
+        @apply font-[600] text-lg lg:text-xl text-center;
+      }
+    }
+  }
+}
+
+// Right Section
+.container {
+  @apply min-h-screen w-screen  overflow-y-hidden flex flex-col lg:flex-row;
+  &_rightSection {
+    @apply lg:flex-1 flex items-center      justify-center pt-0 -mt-[5rem];
+    &_wrapper {
+      @apply md:max-w-[80%] mx-auto max-w-[95%] flex flex-col   w-full px-8;
+      &_content {
+        @apply flex flex-col items-center w-full  text-center justify-center  mb-10;
+        &_welcome {
+          @apply text-2xl  mb-8;
+        }
+        &_account {
+          @apply block w-full items-start text-left;
+        }
+      }
+    }
+  }
+}
+
+// Login Form
+.form {
+  &_formGroup {
+    @apply mb-4;
+    &_label {
+      @apply block text-sm font-medium text-gray-700;
+    }
+    &_input {
+      @apply mt-1 p-2 w-full border rounded-3xl px-4;
+    }
+    &_btnWrapper {
+      @apply mt-8 flex font-bold items-center w-full justify-center;
+      &_mainBtn {
+        @apply bg-[#E32662]  w-[80%] flex items-center justify-center  text-white lg:py-6 py-7 px-4 rounded-2xl hover:bg-[#e32662bd] transition duration-300 mb-4;
+      }
+    }
+  }
+  &_socialBtnWrapper {
+    @apply flex md:flex-row flex-col   items-center gap-5 justify-center mt-5;
+  }
+  &_socialBtn {
+    @apply border-[1px] flex justify-center items-center w-full gap-3 text-gray-500 py-7 px-2 rounded-full hover:bg-gray-100  text-sm transition duration-300;
+
+    @screen lg {
+      @apply py-5;
+    }
+  }
+}
+
+.account_type {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  text-transform: capitalize;
+
+  .role {
+    font-weight: 400;
+    color: #e32662;
+    font-size: 0.9rem;
+  }
+}
+.profile_image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  object-fit: cover;
+}
