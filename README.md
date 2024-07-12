@@ -103,4 +103,13 @@ This project involves creating a Next.js application that meets the following re
 ### Component Architecture:
 
 - Used the atomic design methodology to structure components: Atoms, Molecules, and Organisms.
+
 # Softhesis-Labs
+
+![Screenshot of the application](https://github.com/iamkelv/Softhesis-Labs/blob/main/public/screenhot/1.PNG?raw=true)
+
+![Screenshot of the application](https://github.com/iamkelv/Softhesis-Labs/blob/main/public/screenhot/2.PNG?raw=true)
+
+![Screenshot of the application](https://github.com/iamkelv/Softhesis-Labs/blob/main/public/screenhot/3.PNG?raw=true)
+
+![Screenshot of the application](https://github.com/iamkelv/Softhesis-Labs/blob/main/public/screenhot/4.PNG?raw=true)
